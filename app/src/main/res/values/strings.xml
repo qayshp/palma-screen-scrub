@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Palma Screen Scrub</string>
+    <string name="accessibility_service_description">Experimental logical-white-pixel refresh. Screenshots stay in memory and no underlying app content is modified.</string>
+</resources>
