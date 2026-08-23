@@ -1,0 +1,32 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+*.iml
+.idea/
+.vscode/
+
+# Local device captures, generated analysis runs, and packaged binaries.
+/outputs/
+/releases/
+*.apk
+*.aab
+
+# Build and tool output.
+*.log
+*.err.log
+__pycache__/
+*.py[cod]
+
+# Local secrets and signing material.
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+keystore.properties
+
+# OS metadata.
+.DS_Store
+Thumbs.db
+

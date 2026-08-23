@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        tools:node="remove" />
+    <uses-permission
+        android:name="android.permission.DUMP"
+        tools:node="remove" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <application
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PalmaScreenScrub"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:excludeFromRecents="true" />
+        <activity
+            android:name=".ScrubSettingsActivity"
+            android:exported="false"
+            android:taskAffinity="dev.palma.screenscrub.settings"
+            android:screenOrientation="portrait" />
+        <activity android:name=".LiveLogActivity" android:exported="false" />
+        <activity android:name=".RunHistoryActivity" android:exported="false" />
+        <activity-alias
+            android:name=".QuickScrubAlias"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Palma Screen Scrub"
+            android:targetActivity=".MainActivity">
+            <intent-filter android:priority="0">
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="dev.palma.screenscrub.action.QUICK_SCRUB" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".SettingsAlias"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Screen Scrub Settings"
+            android:targetActivity=".ScrubSettingsActivity">
+            <intent-filter android:priority="-20">
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="dev.palma.screenscrub.action.SETTINGS" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".DiagnosticsAlias"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Palma Screen Scrub / Diagnostics"
+            android:targetActivity=".MainActivity">
+            <intent-filter android:priority="-10">
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="dev.palma.screenscrub.action.DIAGNOSTICS" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".AutomationAlias"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Palma Screen Scrub Automation"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="dev.palma.screenscrub.action.AUTOMATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+        <service
+            android:name=".AccessibilityRefreshService"
+            android:description="@string/accessibility_service_description"
+            android:exported="true"
+            android:label="Palma logical-white refresh"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_refresh_service" />
+        </service>
+        <activity-alias
+            android:name=".QuickOverlayAlias"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Quick Overlay Scrub"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="dev.palma.screenscrub.action.QUICK_OVERLAY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".Quick16Alias"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Quick 16-Band Diagnostic"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="dev.palma.screenscrub.action.QUICK_16" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name=".QuickAccessibilityAlias"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Quick Accessibility White-Pixel Refresh"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="dev.palma.screenscrub.action.QUICK_ACCESSIBILITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+    </application>
+</manifest>
